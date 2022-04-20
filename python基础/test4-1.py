@@ -2,7 +2,7 @@
 # 直接赋值 完全切片 深拷贝 浅拷贝的理解
 import copy
 
-a = [1, 3, 5, 7, 10, [1, 3, ]]
+a = [1, 3, 5, 7, 10, [1, 3, [6, 7]]]
 # 直接赋值  实际复制的是a的地址(引用) a对象更改b对象也会更改  is是比较id是否相同 跟c好像不大一样
 # print(a)
 # b = a
@@ -23,7 +23,10 @@ a = [1, 3, 5, 7, 10, [1, 3, ]]
 # a[5].append(99)
 # print(a)
 # print(b)
-
+# a[5][2].append(33)
+# print(a)
+# print(b)
+# print("-------------------------浅拷贝")
 # 浅拷贝 类似于完全切片
 # b = copy.copy(a)
 # print(id(a))
@@ -31,12 +34,17 @@ a = [1, 3, 5, 7, 10, [1, 3, ]]
 # print(id(a[5]))
 # print(id(b[5]))
 
+print("-----------------深拷贝")
 # 深拷贝
 b = copy.deepcopy(a)
 print(id(a))
 print(id(b))
 print(id(a[5]))
 print(id(b[5]))
-
+print(id(a[5][2]))
+print(id(b[5][2]))
+a[5][2].append(99)
+print(a)
+print(b)
 
 
