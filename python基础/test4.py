@@ -1,5 +1,5 @@
 # coding = utf -8
-# 操作列表148
+# 操作列表
 if __name__ == '__main__':
     # aas = ["liyunlong","wujin","zhaobenshang"]
     # for aa in aas:
@@ -40,12 +40,19 @@ if __name__ == '__main__':
     #     print(i)
 
     # 复制列表
-    lists = [1, 3, 6]
-    listsa = lists[:]  # 这与深拷贝有什么关系？
+    # lists = [1, 3, 6]
+    # listsa = lists[:]  # 等同于浅拷贝
+    #
+    # lists.pop(2)
+    # print(lists)
+    # print(listsa)
 
-    lists.pop(2)
-    print(lists)
-    print(listsa)
+    # 元组
+    # 有时候你需要创建一系列不可修改的元素，元组可以满足这种需求,矩阵
+    dimensions = (100, 200)
+    print(dimensions[0])
+    print(dimensions[1])
+
 
 
 
