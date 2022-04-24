@@ -76,7 +76,8 @@ for user, user_info in users.items():
     print(user_info)
 
 
-
+# 集合 无序 无重复
+jihe = {"java", "python", "c++", "java"}
 
 
 

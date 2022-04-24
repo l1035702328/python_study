@@ -47,11 +47,12 @@ if __name__ == '__main__':
     # print(lists)
     # print(listsa)
 
-    # 元组
+    # 元组 有序，可重复
     # 有时候你需要创建一系列不可修改的元素，元组可以满足这种需求,矩阵
-    dimensions = (100, 200)
+    dimensions = (100, 200, 200)
     print(dimensions[0])
     print(dimensions[1])
+    print(dimensions[2])
 
 
 
