@@ -30,5 +30,10 @@ def test2():
         money = money * 0.01
     return money
 
+
+# 一个整数，它加上100后是一个完全平方数，再加上168又是一个完全平方数，请问该数是多少？
+def test3():
+    print("xianbuchulai")
+
 if __name__ == '__main__':
     print(test2())
