@@ -1,5 +1,5 @@
 # coding = utf-8
-# 私有化 与 @property取代getset
+# 私有化 与 @property 目的是getset
 # xx: 公有变量
 # _x: 单前置下划线,私有化属性或方法，禁止通过from modules import *导入,但是类对象和子类可以访问
 # __xx：双前置下划线,避免与子类中的属性命名冲突，无法在外部直接访问(名字重整所以访问不到)，类对象和子类不能访问
@@ -27,7 +27,7 @@ class Test2:
         return self._name
 
     @name.setter
-    def set_name(self, name):
+    def name(self, name):
         self._name = name
 
 
@@ -40,4 +40,9 @@ if __name__ == '__main__':
     t2 = Test2("li")
     t2._name = 4
     print(t2._name)
-    t2.set_name
+    t2.name=5
+    print(t2.name)
+    t2.name = 6
+    print(t2.name)
+
+
