@@ -1,7 +1,7 @@
 # coding = utf-8
 from collections import deque
 import itertools
-# 一个简单的迭代器与生成器
+# 迭代器与生成器
 # isinstance('abc',Ierable) #判断是否是可迭代对象
 def test1():
     lists = [1, 3, 5]
@@ -191,9 +191,7 @@ def test9():
         lists1.append(k)
     print(len(lists1))
 
-# 序列上索引值迭代
-
-def test91():
+def test9_1():
     items = ["a", "b", "c", "d"]
     lists2 = []
     for i in items:
@@ -204,6 +202,17 @@ def test91():
                         print("{}{}{}{}".format(i, j, k, s))
                         lists2.append("{}{}{}{}".format(i, j, k, s))
     print(len(lists2))
+
+
+# 序列上索引值迭代
+def test10():
+    items = ["a", "b", "c", "d"]
+    for index, i in enumerate(items, 1):
+        print(index)
+
+# 同时迭代多个序列
+
+
 if __name__ == '__main__':
     # 简单迭代器
     # test1()
@@ -211,7 +220,7 @@ if __name__ == '__main__':
     # test2()
     # 生成器
     # test3()
-    # 实现迭代器协议 看不明白
+    # 实现迭代器协议 多看
     # test4()
     # 反向迭代
     # test5()
@@ -222,5 +231,7 @@ if __name__ == '__main__':
     # 跳过迭代器的开始部分
     # test8()
     # 排列与组合迭代
-    test9()
+    # test9()
+    # 序列上索引值迭代
+    test10()
 

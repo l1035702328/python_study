@@ -46,7 +46,7 @@ print(len(alien_wares))
 
 # 字典中存储列表
 favorite_languages = {
-    'jen': ['python', 'ruby'],
+    'jen': ['python进阶', 'ruby'],
     'sarah': ['c'],
     "he": ["java"]
 }
@@ -77,7 +77,7 @@ for user, user_info in users.items():
 
 
 # 集合 无序 无重复
-jihe = {"java", "python", "c++", "java"}
+jihe = {"java", "python进阶", "c++", "java"}
 
 
 
