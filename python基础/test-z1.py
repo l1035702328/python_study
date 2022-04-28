@@ -191,8 +191,6 @@ def test9():
         lists1.append(k)
     print(len(lists1))
 
-# 序列上索引值迭代
-
 def test91():
     items = ["a", "b", "c", "d"]
     lists2 = []
@@ -223,4 +221,63 @@ if __name__ == '__main__':
     # test8()
     # 排列与组合迭代
     test9()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# beat beat beaten
+# become became become
+# begin began begun
+# bite bit bitten
+# blow blew blown
+# break broke broken
+# bring brought brought
+# build built built
+# buy bought bought
+# catch caught caught
+# choose chose chosen
+# come came come
+# cost cost cost
+# cut cut cut
+# do did done
+# draw drew drawn
+# drink drank drunk
+# drive drove driven
+# eat ate eaten
+# fall fell fallen
+# feel felt felt
+# fight fought fought
+# find found found
+# fly flew flown
+# forget forgot forgotten
+# get got got
+# give gave given
+# go went gone
+# grow grew grown
+# hang hung hung
+# have had had
+# hear heard heard
+# hide hid hidden
+# hit hit hit
+# hold held held
+# hurt hurt hurt
+# keep kept kept
+# know knew known
+# leave left left
+# lend lent lent
 

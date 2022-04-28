@@ -1,6 +1,12 @@
 # coding = utf-8
 from collections import deque
+from collections import Iterable
 import itertools
+import os
+import fnmatch
+import gzip
+import bz2
+import re
 # 迭代器与生成器
 # isinstance('abc',Ierable) #判断是否是可迭代对象
 def test1():
@@ -210,7 +216,78 @@ def test10():
     for index, i in enumerate(items, 1):
         print(index)
 
+
 # 同时迭代多个序列
+def test11():
+    xds = ["a", "b", "c"]
+    yds = [1, 2, 3]
+    for i, j in zip(xds, yds):
+        print(i, j)
+
+    for i in zip(xds, yds):
+        print(type(i))
+        print(i)
+
+
+# 创建数据处理管道
+def gen_find(filepat, top):
+    '''
+    Find all filenames in a directory tree that match a shell wildcard pattern
+    '''
+    for path, dirlist, filelist in os.walk(top):
+        for name in fnmatch.filter(filelist, filepat):
+            yield os.path.join(path, name)
+
+def gen_opener(filenames):
+    '''
+    Open a sequence of filenames one at a time producing a file object.
+    The file is closed immediately when proceeding to the next iteration.
+    '''
+    for filename in filenames:
+        if filename.endswith('.gz'):
+            f = gzip.open(filename, 'rt')
+        elif filename.endswith('.bz2'):
+            f = bz2.open(filename, 'rt')
+        else:
+            f = open(filename, 'rt')
+        yield f
+        f.close()
+
+def gen_concatenate(iterators):
+    '''
+    Chain a sequence of iterators together into a single sequence.
+    '''
+    for it in iterators:
+        yield from it
+
+def gen_grep(pattern, lines):
+    '''
+    Look for a regex pattern in a sequence of lines
+    '''
+    pat = re.compile(pattern)
+    for line in lines:
+        if pat.search(line):
+            yield line
+
+def test12():
+    print("略")
+
+
+# 展开嵌套的序列
+# 问题:你想将一个多层嵌套的序列展开成一个单层列表
+def flatten(items, ignore_types=(str, bytes)):
+    for x in items:
+        if isinstance(x, Iterable) and not isinstance(x, ignore_types):
+            for i in flatten(x):
+                yield i
+            # yield from flatten(x)
+        else:
+            yield x
+def test13():
+    items = [1, 2, [3, 4, [5, 6], 7], 8]
+    for x in flatten(items):
+        print(x)
+
 
 
 if __name__ == '__main__':
@@ -233,5 +310,7 @@ if __name__ == '__main__':
     # 排列与组合迭代
     # test9()
     # 序列上索引值迭代
-    test10()
-
+    # test10()
+    # 同时迭代多个序列
+    # test11()
+    test13()
