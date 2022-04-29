@@ -7,6 +7,7 @@ import fnmatch
 import gzip
 import bz2
 import re
+import heapq
 # 迭代器与生成器
 # isinstance('abc',Ierable) #判断是否是可迭代对象
 def test1():
@@ -288,6 +289,22 @@ def test13():
     for x in flatten(items):
         print(x)
 
+# 顺序迭代合并后的排序迭代对象
+def test14():
+    a = [1, 4, 7, 10]
+    b = [2, 5, 6, 11]
+    print(heapq.merge(a,b))
+    for c in heapq.merge(a, b):
+        print(c)
+
+# filter() 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表。
+# 该接收两个参数，第一个为函数，第二个为序列，序列的每个元素作为参数传递给函数进行判断，然后返回 True 或 False，最后将返回 True 的元素放到新列表中。
+# 匿名函数
+def test15():
+    L= list(filter(lambda n: n % 2 == 1, range(1, 20)))
+    print(L)
+
+
 
 
 if __name__ == '__main__':
@@ -313,4 +330,6 @@ if __name__ == '__main__':
     # test10()
     # 同时迭代多个序列
     # test11()
-    test13()
+    # test13()
+    # test14()
+    test15()
