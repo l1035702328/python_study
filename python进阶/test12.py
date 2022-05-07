@@ -179,9 +179,10 @@ def test2_2():
 #     mutex.acquire()
 #     # 释放
 #     mutex.release()
+# 错误实例 每个Node对象都有一个自己的Lock对象
 ticket = 100000
 num = 0
-class Node(Thread):
+class Node(threading.Thread):
     def __init__(self, name):
         super(Node, self).__init__()
         self._name = name
@@ -193,7 +194,7 @@ class Node(Thread):
         while ticket > 0:
             with self._lock:
                 ticket = ticket - 1
-                print("{}:\t{}".format(threading.current_thread(), ticket))
+                print("{}:\t{}\t锁对象:{}".format(threading.current_thread(), ticket, self._lock))
                 num = num+1
                 print(num)
         print("最后输出:{}".format(num))

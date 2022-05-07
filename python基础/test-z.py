@@ -40,7 +40,7 @@ if __name__ == '__main__':
     t2 = Test2("li")
     t2._name = 4
     print(t2._name)
-    t2.name=5
+    t2.name = 5
     print(t2.name)
     t2.name = 6
     print(t2.name)

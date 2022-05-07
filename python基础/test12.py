@@ -61,7 +61,7 @@ def get_formatted_name(first, last):
 class TestAnonymousSurvey(unittest.TestCase):
     def setUp(self):
         """
-        创建一个调查对象和一组答案，供使用的测试方法使用。
+        创建一个调查对象和一组答案，供使用的测试方法使用 局部变量。
         """
         question = "What language did you first learn to speak?"
         self.my_survey = AnonymousSurvey(question)
