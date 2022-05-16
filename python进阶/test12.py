@@ -93,7 +93,7 @@ def test1_3():
     # p.start()
 
 
-# 判断线程是否已启动 利用Event
+# 判断线程是否已启动 线程同步 利用Event
 def test2():
     # Code to execute in an independent thread
     def countdown(n, started_evt):
@@ -207,10 +207,38 @@ def test3():
 # 　在Python中为了支持同一个线程中多次请求同一资源，Python提供了可重入锁。这个RLock内部维护着一个Lock和一个counter
 # 　变量，counter记录了acquire的次数，从而使得资源可以被多次require。直到一个线程所有的acquire都被release，其他的线程才能获
 #   得资源。
+# 这种锁对比Lock有是三个特点：
+# 1. 谁拿到谁释放。如果线程A拿到锁，线程B无法释放这个锁，只有A可以释放；
+# 2. 同一线程可以多次拿到该锁，即可以acquire多次；
+# 3. acquire多少次就必须release多少次，只有最后一次release才能改变RLock的状态为unlocked）
+# 当需要在类外面保证线程安全，又要在类内使用同样方法的时候RLock()就很使用。
+
+# 错误实例 为什么要使用 RLock 在嵌套的时候Lock无法使用
+def test4():
+    lock = threading.Lock()
+    def text():
+        lock.acquire()
+        try:
+            text_1()
+        finally:
+            lock.release()
+    def text_1():
+        lock.acquire()
+        try:
+            text_2()
+        finally:
+            lock.release()
+    def text_2():
+        print('Lock,Lock,biubiubiu.')
+    threading.Thread(target=text).start()
+    threading.Thread(target=text).start()
+    threading.Thread(target=text).start()
+
 
 if __name__ == '__main__':
     # test1()
     # test1_1()
     # test2()
     # test2_2()
-    test3()
+    # test3()
+    test4()

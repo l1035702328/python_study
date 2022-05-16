@@ -8,8 +8,6 @@ import random
 import threading
 import time
 
-# Lock锁 会发生死锁
-# 加锁
 
 import threading
 
@@ -21,7 +19,7 @@ class A(threading.Thread):
     def run(self):
         with self.lock:
             for i in range(10000):
-                print("{}\tname:{}\t{}".format(self.lock,self.getName(), i))
+                print("{}\tname:{}\t{}".format(self.lock, self.getName(), i))
 
 
 def test1(lock):
