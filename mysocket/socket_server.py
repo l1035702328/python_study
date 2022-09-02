@@ -83,6 +83,7 @@ class MyServer(socketserver.BaseRequestHandler):
 
 
 
+
 if __name__ == '__main__':
     # 创建logger实例
     logging.basicConfig(handlers=[logging.FileHandler(filename="./hxya.log",

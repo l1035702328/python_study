@@ -22,7 +22,7 @@ def get_data():
 client = socket.socket()
 
 # 连接服务器
-addr = ('127.0.0.1', 5000)
+addr = ('127.0.0.1', 6000)
 client.connect(addr)
 
 # 发送数据
@@ -31,5 +31,5 @@ while 1:
     client.send(data.encode('utf-8'))
     result = client.recv(1024)
     print(result.decode())
-    time.sleep(5)
+    time.sleep(20)
 client.close()
