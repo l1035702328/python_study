@@ -77,7 +77,7 @@ class Test(unittest.TestCase):
         text = "aabb45ff3dd"
         print(re.findall(r'bb.*d', text))
 
-    # (?<=)出现在前  (?=)出现在后
+    # (?<=)前面为该字符 用于匹配后面得字符  \d+(?=)后面为该字符 用于匹配前面字符
     def test9(self):
         text = "yueluowutijiannan123ruwomian"
         print(re.findall(r'(?<=nan)\d+', text))

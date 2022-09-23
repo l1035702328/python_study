@@ -31,5 +31,5 @@ while 1:
     client.send(data.encode('utf-8'))
     result = client.recv(1024)
     print(result.decode())
-    time.sleep(20)
+    time.sleep(5)
 client.close()
